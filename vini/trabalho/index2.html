@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <main>
+        <div id="titulo"><h1>Donattelos's</h1></div>
+
+        <div class="produto" id="4queijos">
+            <h2>Pizza 4 queijos <img src="pizza.jfif" alt="pizza" width="30px" height="30px"></h2>
+            <h3>Valor R$40,00</h3>
+            <input class="btn" type="button" onclick="adicionar(40, 'Pizza 4 queijos')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="8queijos">
+            <h2>Pizza 8 queijos</h2>
+            <h3>Valor R$:45,00</h3>
+            <input class="btn" type="button" onclick="adicionar(45, 'Pizza 8 queijos')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="vegana">
+            <h2>Pizza vegana</h2>
+            <h3>Valor R$70,00</h3>
+            <input class="btn" type="button" onclick="adicionar(70, 'Pizza vegana')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="doritos">
+            <h2>Pizza de doritos</h2>
+            <h3>Valor R$55,00</h3>
+            <input class="btn" type="button" onclick="adicionar(55, 'Pizza de doritos')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="strogonoff">
+            <h2>Pizza de strogonoff</h2>
+            <h3>Valor R$35,00</h3>
+            <input class="btn" type="button" onclick="adicionar(35, 'Pizza de strogonoff')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="calabresa">
+            <h2>Pizza de calabresa</h2>
+            <h3>Valor R$50,00</h3>
+            <input class="btn" type="button" onclick="adicionar(50, 'Pizza de calabresa')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="marguerita">
+            <h2>Pizza de marguerita</h2>
+            <h3>Valor R$35,00</h3>
+            <input class="btn" type="button" onclick="adicionar(35, 'Pizza de marguerita')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="frango">
+            <h2>Pizza de frango</h2>
+            <h3>Valor R$30,00</h3>
+            <input class="btn" type="button" onclick="adicionar(30, 'Pizza de frango')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="carneseca">
+            <h2>Pizza de carne seca</h2>
+            <h3>Valor R$60,00</h3>
+            <input class="btn" type="button" onclick="adicionar(60, 'Pizza de carne seca')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="chocolate">
+            <h2>Pizza de chocolate</h2>
+            <h3>Valor R$50,00</h3>
+            <input class="btn" type="button" onclick="adicionar(50, 'Pizza de chocolate')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="chocolatebranco">
+            <h2>Pizza de chocolate branco</h2>
+            <h3>Valor R$40,00</h3>
+            <input class="btn" type="button" onclick="adicionar(40, 'Pizza de chocolate branco')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="2amores">
+            <h2>Pizza 2 amores</h2>
+            <h3>Valor R$45,00</h3>
+            <input class="btn" type="button" onclick="adicionar(45, 'Pizza 2 amores')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="chocolateMorango">
+            <h2>Pizza de chocolate com morango</h2>
+            <h3>Valor R$60,00</h3>
+            <input class="btn" type="button" onclick="adicionar(60, 'Pizza de chocolate de morango')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="sorvete">
+            <h2>Pizza de sorvete</h2>
+            <h3>Valor R$70,00</h3>
+            <input class="btn" type="button" onclick="adicionar(70, 'Pizza de sorvete')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="nutella">
+            <h2>Pizza de Nutella</h2>
+            <h3>Valor R$80,00</h3>
+            <input class="btn" type="button" onclick="adicionar(80,'Pizza de nutella')" value="Adicionar ao carrinho">
+        </div>
+
+        <div class="produto" id="brigadeiro">
+            <h2>Pizza de brigadeiro</h2>
+            <h3>Valor R$65,00</h3>
+            <input class="btn" type="button" onclick="adicionar(65, 'Pizza de brigadeiro')" value="Adicionar ao carrinho">
+        </div>
+
+
+
+        <hr>
+
+        <h1>Carrinho de Compras</h1>
+
+        <ul id="lista">
+            
+        </ul>
+
+        <h2 id="valor">Valor:</h2>
+
+        <input type="button" value="Confirmar Compra" onclick="confirmar()" id="confirmar">
+        <input type="button" value="Limpar pedido" id="limpar" onclick="limpar()">
+
+        <script>
+
+            let valorh2 = window.document.getElementById('valor');
+
+            let tabela = document.getElementById('lista');
+            
+
+            let total = 0;
+
+            function adicionar(valor, nome){
+                
+                let lista = document.createElement('li');
+                lista.className = 'lista';
+                total = total+valor;
+                valorh2.innerText = 'Valor:'+total;
+                tabela.append(lista);
+                lista.innerText = nome;
+            }
+
+            function confirmar(){
+                
+            }
+
+            function limpar(){
+                valorh2.innerText = 'Valor:';
+                let lista = document.getElementsByClassName('lista');
+
+                total = 0;
+
+                for(let i = 0; i <= lista.length; i){
+                    lista[i].parentNode.removeChild(lista[i]);
+                }
+                
+                
+            }
+
+
+        </script>
+
+        
+    </main>
+</body>
+</html>
